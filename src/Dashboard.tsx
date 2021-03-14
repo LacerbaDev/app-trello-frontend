@@ -15,7 +15,7 @@ const StyledApp = styled.div`
   overflow-y: scroll;
 `;
 
-const api = new ApiService('http://localhost:4000');
+const api = new ApiService('http://localhost:4000/app');
 
 export function Dashboards() {
   const [dashboards, setDashboards] = useState<DashboardModel[]>([]);
