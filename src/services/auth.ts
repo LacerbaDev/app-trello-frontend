@@ -24,7 +24,7 @@ export class AuthService {
   }
 
   async register(email: string, name: string, password: string): Promise<boolean> {
-    const res = await fetch(`${this.url}/login`, {
+    const res = await fetch(`${this.url}/register`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',

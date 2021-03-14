@@ -48,7 +48,7 @@ export const RegisterPage = () => {
           {err && <ErrMsg>Invalid register</ErrMsg>}
           <button type="submit"> Register </button>
 
-          <Link to="/login"> Register </Link>
+          <Link to="/login"> Login </Link>
         </RegisterFormStyled>
       </div>
     </RegisterPageStyled>
