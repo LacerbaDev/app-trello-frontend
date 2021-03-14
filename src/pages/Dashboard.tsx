@@ -1,11 +1,10 @@
 import styled from '@emotion/styled';
-import './App.css';
-import { Dashboard } from './components/dashboard';
-import { Dashboard as DashboardModel } from './models';
+import { Dashboard } from '../components/dashboard';
+import { Dashboard as DashboardModel } from '../models';
 import { DragDropContext, Droppable, DropResult } from 'react-beautiful-dnd';
 import { useEffect, useState } from 'react';
-import { ApiService } from './services/api';
-import { CreateDashboard } from './components/create-dashboard';
+import { apiService } from '../services';
+import { CreateDashboard } from '../components/create-dashboard';
 
 const StyledApp = styled.div`
   display: flex;
@@ -15,13 +14,11 @@ const StyledApp = styled.div`
   overflow-y: scroll;
 `;
 
-const api = new ApiService('http://localhost:4000/app');
-
 export function Dashboards() {
   const [dashboards, setDashboards] = useState<DashboardModel[]>([]);
   useEffect(() => {
     async function getDashboard() {
-      const dashboards = await api.getDashboards();
+      const dashboards = await apiService.getDashboards();
       setDashboards(dashboards);
     }
     getDashboard();
@@ -33,27 +30,27 @@ export function Dashboards() {
     }
     const position = result.destination.index;
     const dashboardId = result.draggableId;
-    const dashboards = await api.moveDashboard(dashboardId, position);
+    const dashboards = await apiService.moveDashboard(dashboardId, position);
     setDashboards(dashboards);
   }
 
   async function creatContent(name: string, dashboardId: string) {
-    const dashboards = await api.createContent(name, dashboardId);
+    const dashboards = await apiService.createContent(name, dashboardId);
     setDashboards(dashboards);
   }
 
   async function creatDashboard(name: string) {
-    const dashboards = await api.createDashboard(name);
+    const dashboards = await apiService.createDashboard(name);
     setDashboards(dashboards);
   }
 
   async function deleteContent(contentId: string, dashboardId: string) {
-    const dashboards = await api.deleteContent(contentId, dashboardId);
+    const dashboards = await apiService.deleteContent(contentId, dashboardId);
     setDashboards(dashboards);
   }
 
   async function deleteDashboard(dashboardId: string) {
-    const dashboards = await api.deleteDashboard(dashboardId);
+    const dashboards = await apiService.deleteDashboard(dashboardId);
     setDashboards(dashboards);
   }
 
@@ -65,7 +62,7 @@ export function Dashboards() {
     const contentId = result.draggableId;
     const destDashboardId = result.destination.droppableId;
     const position = result.destination.index;
-    const dashboards = await api.moveContent(srcDashboardId, contentId, destDashboardId, position);
+    const dashboards = await apiService.moveContent(srcDashboardId, contentId, destDashboardId, position);
     setDashboards(dashboards);
   }
 
