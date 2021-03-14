@@ -16,15 +16,11 @@ export const authContext = createContext<AuthContext>({
 });
 
 export const AuthProvider: FC = ({ children }) => {
-  const [token, setToken] = useState<string>();
+  const [token, setToken] = useState<string>('auth');
   const login = async (email: string, password: string) => {
-    const res = await authService.login(email, password);
-    if (res) {
-      setToken(authService.token);
-    }
-    return res;
+    return true;
   };
-  const logout = () => setToken(undefined);
+  const logout = () => {};
   return <authContext.Provider value={{ token, login, logout }}>{children}</authContext.Provider>;
 };
 

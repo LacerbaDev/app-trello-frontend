@@ -1,6 +1,6 @@
 import { AuthService } from './auth';
-import { ApiService } from './api';
+import { ApiService } from './api.mock';
 
 const url = 'http://localhost:4000';
 export const authService = new AuthService(`${url}/auth`);
-export const apiService = new ApiService(`${url}/app`, authService);
+export const apiService = new ApiService(`${url}/app`);

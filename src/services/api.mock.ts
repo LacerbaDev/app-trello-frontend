@@ -40,14 +40,15 @@ let dashboards: Dashboard[] = [
 export class ApiService {
   constructor(private readonly url: string) {}
 
-  getDashboards(): Promise<Dashboard[]> {
-    return Promise.resolve(dashboards);
+  async getDashboards(): Promise<Dashboard[]> {
+    return JSON.parse(JSON.stringify(dashboards));
   }
 
-  createContent(text: string, dashboardId: string) {
+  async createContent(text: string, dashboardId: string) {
     const dashboard = dashboards.find((d) => d.id === dashboardId);
     if (dashboard) {
-      dashboard?.contents.push({
+      console.log('adding', text);
+      dashboard.contents.push({
         dashboardId: dashboardId,
         id: makeid(40),
         position: dashboard?.contents.length,
@@ -89,19 +90,27 @@ export class ApiService {
     return this.getDashboards();
   }
 
-  moveContent(
+  async moveContent(
     srcDashboardId: string,
     contentId: string,
     destDashboardId: string,
     position: number
   ): Promise<Dashboard[]> {
-    return fetch(`${this.url}/${srcDashboardId}/${contentId}/move`, {
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json',
-      },
-      body: JSON.stringify({ position: position, dashboardId: destDashboardId }),
-    }).then((res) => res.json());
+    const srcDashboard = dashboards.find((d) => d.id === srcDashboardId);
+    if (!srcDashboard) {
+      return this.getDashboards();
+    }
+    const destDashboard = dashboards.find((d) => d.id === destDashboardId);
+    if (!destDashboard) {
+      return this.getDashboards();
+    }
+    const cntIdx = srcDashboard.contents.findIndex((c) => c.id === contentId);
+    if (cntIdx === -1) {
+      return this.getDashboards();
+    }
+    const [cnt] = srcDashboard.contents.splice(cntIdx, 1);
+    destDashboard.contents.splice(position, 0, cnt);
+    return this.getDashboards();
   }
 }
 
