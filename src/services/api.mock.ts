@@ -3,28 +3,28 @@ import { Dashboard } from '../models';
 let dashboards: Dashboard[] = [
   {
     id: 'ckm7nn93h0121r85cfw0k7hvm',
-    name: 'asdasd',
+    name: 'Cose da fare',
     position: 0,
     contents: [
-      { id: 'ckm7ogrcf06440q5cdy08pzsi', text: '2', position: 0, dashboardId: 'ckm7nn93h0121r85cfw0k7hvm' },
-      { id: 'ckm7ojpvv01604t5cnsnl4k0s', text: '5', position: 1, dashboardId: 'ckm7nn93h0121r85cfw0k7hvm' },
+      { id: 'ckm7ogrcf06440q5cdy08pzsi', text: 'Fare la spesa', position: 0, dashboardId: 'ckm7nn93h0121r85cfw0k7hvm' },
+      { id: 'ckm7ojpvv01604t5cnsnl4k0s', text: 'Riparare il tostapane', position: 1, dashboardId: 'ckm7nn93h0121r85cfw0k7hvm' },
     ],
   },
   {
     id: 'ckm0w9ba50045km5cuwgdw3ee',
-    name: 'dashboard 4',
+    name: 'Cose in progress',
     position: 1,
     contents: [
-      { id: 'ckm0w9ba10020km5c44n29xyr', text: 'ciao Lacerba', position: 0, dashboardId: 'ckm0w9ba50045km5cuwgdw3ee' },
-      { id: 'ckm7m3ici0031s65cmyulhp53', text: 'asdasd', position: 1, dashboardId: 'ckm0w9ba50045km5cuwgdw3ee' },
+      { id: 'ckm0w9ba10020km5c44n29xyr', text: 'Portare fuori il cane', position: 0, dashboardId: 'ckm0w9ba50045km5cuwgdw3ee' },
+      { id: 'ckm7m3ici0031s65cmyulhp53', text: 'Imparare con i corsi Lacerba', position: 1, dashboardId: 'ckm0w9ba50045km5cuwgdw3ee' },
     ],
   },
   {
     id: 'ckm7of1cc05370q5cq34eqnyj',
-    name: 'asdasd',
+    name: 'Cose fatte',
     position: 2,
     contents: [
-      { id: 'ckm7ok1cg03314t5cnjvj8s2m', text: 'asdsad', position: 0, dashboardId: 'ckm7of1cc05370q5cq34eqnyj' },
+      { id: 'ckm7ok1cg03314t5cnjvj8s2m', text: 'Prenotare vacanze', position: 0, dashboardId: 'ckm7of1cc05370q5cq34eqnyj' },
     ],
   },
   {
@@ -32,7 +32,7 @@ let dashboards: Dashboard[] = [
     name: 'New Dashboard',
     position: 3,
     contents: [
-      { id: 'ckm7ojzpm03154t5cosyq5wwc', text: 'adssad', position: 0, dashboardId: 'ckm7ojxhs03004t5c4r9ffpvj' },
+      { id: 'ckm7ojzpm03154t5cosyq5wwc', text: 'Boh...', position: 0, dashboardId: 'ckm7ojxhs03004t5c4r9ffpvj' },
     ],
   },
 ];

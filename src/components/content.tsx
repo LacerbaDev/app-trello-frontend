@@ -37,6 +37,7 @@ export const Content: FC<ContentProps> = ({ text, id, index, onDelete }) => {
 };
 
 const DeleteButton = styled.button`
+  display: flex;
   background-color: #ff4d4d;
   color: white;
   font-size: 15px;
@@ -45,7 +46,6 @@ const DeleteButton = styled.button`
   border-radius: 5px;
   width: 20px;
   height: 20px;
-  display: grid;
   place-content: center;
   margin: 0;
   padding: 0;

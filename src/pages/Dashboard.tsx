@@ -9,8 +9,8 @@ import { CreateDashboard } from '../components/create-dashboard';
 const StyledApp = styled.div`
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   gap: 10px;
-  min-width: 400px;
   overflow-y: scroll;
 `;
 
