@@ -5,7 +5,6 @@ import { Content } from './content';
 import { CreateContent } from './create-content';
 
 const DashboardStyled = styled.div`
-  width: 220px;
   height: 100%;
   min-height: 400px;
   border: 1px solid #ccc;
