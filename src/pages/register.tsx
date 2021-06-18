@@ -25,10 +25,11 @@ export const RegisterPage = () => {
     }
   };
   if (token) {
-    return <Redirect to="/" />;
+    return <Redirect to="./" />;
   }
   if (registered) {
-    return <Redirect to="/login" />;
+    alert('Registazione completata con successo. Vai al login per accedere');
+    return <Redirect to="./login" />;
   }
 
   return (
@@ -48,7 +49,7 @@ export const RegisterPage = () => {
           {err && <ErrMsg>Invalid register</ErrMsg>}
           <button type="submit"> Register </button>
 
-          <Link to="/login"> Login </Link>
+          <Link to="./login"> Login </Link>
         </RegisterFormStyled>
       </div>
     </RegisterPageStyled>

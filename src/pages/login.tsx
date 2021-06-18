@@ -20,7 +20,7 @@ export const LoginPage = () => {
     setErr(!res);
   };
   if (token) {
-    return <Redirect to="/" />;
+    return <Redirect to="./" />;
   }
   return (
     <LoginPageStyled>
@@ -38,7 +38,7 @@ export const LoginPage = () => {
           {err && <ErrMsg>Invalid login</ErrMsg>}
           <button type="submit"> Login</button>
 
-          <Link to="/register"> Register </Link>
+          <Link to="./register"> Register </Link>
         </LoginFormStyled>
       </div>
     </LoginPageStyled>

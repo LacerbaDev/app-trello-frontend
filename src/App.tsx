@@ -15,14 +15,14 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/login">
+        <Route path="/kanban/login">
           <LoginPage />
         </Route>
 
-        <Route path="/register">
+        <Route path="/kanban/register">
           <RegisterPage />
         </Route>
-        <PrivateRoute path="/">
+        <PrivateRoute path="/kanban/">
           <Nav />
           <Container>
             <Dashboards />
@@ -48,7 +48,7 @@ const PrivateRoute: FC<any> = ({ children, ...rest }) => {
         ) : (
           <Redirect
             to={{
-              pathname: '/login',
+              pathname: '/kanban/login',
               state: { from: location },
             }}
           />
